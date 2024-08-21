@@ -1,0 +1,66 @@
+imagine que você tem uma aplicação React onde o nome de usuário precisa ser exibido
+em um componente bem aninhado na árvore de componentes; sem 
+usar Context, você teria que passar o nome de usuário como prop
+por casa componente intermediário, mesmo que esses componentess
+não precisem usar nome.
+
+
+
+export default function Painel( {username} ) { 
+   return <div><Artigo username={username} /></div>
+}
+
+
+Esse padrão de passar uma props para outro componente que esteja mais em baixo na árvore de 
+componentes é chamado de prop drilling.
+
+Nesse caso estamos passando username para o componente <Artigo /> mas não estamos utilizando
+ diretamente no componente <Painel />. Lidar prop drilling pode ser desafiador, em pouco tempo 
+ fica difícil para qualquer pessoa descobrir onde os dados são inicializados, onde são atualizados 
+ e onde são usados.
+
+ --Então para evitar Prop Drilling usamos React Context
+
+ Para passar o nome para o componente <Painel />, temos primeiro que criar um contexto com React.createContext(). 
+ No nosso caso a referência desse contexto é o UserContext.
+
+export const UserContext = React.createContext()
+
+
+
+<UserContext.Provider>
+   <Painel />
+<UserContext.Provider />
+
+export const UserContext = React.createContext()
+
+
+
+<UserContext.Provider value={username}>
+   <Painel />
+<UserContext.Provider />
+
+
+
+----
+A chamada do createContext devolve um objeto com 
+dois valores, utilizamos o primeiro o Provider, e 
+para pegar o valor do context precisamos de um consumidor ou
+ Consumer e para obter o username que estamos passando usamos 
+ a sintaxe de render prop:
+
+
+
+
+export default function Painel( ) { 
+   return <div>
+                 <UserContext.Consumer>
+                      { value => <div>Bom dia, { value} </div>}
+                 <UserContext.Consumer />
+              </div>
+}
+
+
+-----Essa é uma maneira de passar props do componente pai para o componente 
+filho evitando o prop drilling.
+
