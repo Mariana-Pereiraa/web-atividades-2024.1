@@ -8,7 +8,8 @@ require("./db/mongo")
 //importando os arquivos de rotas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var professoresRouter = require('./routes/professores')
+// var professoresRouter = require('./routes/professores')
+var AlunosRouter = require('./routes/alunos')
 
 var app = express();
 
@@ -29,7 +30,8 @@ app.use(function (req, res, next) {
 //disponibilizando as rotas para o cliente
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/professores', professoresRouter)
+// app.use('/professores', professoresRouter)
+app.use('/alunos', AlunosRouter)
 
 //BROWSER <=> app.js -> professores.js -> ProfessorService.js -> ProfessorModel.js e data.js
 

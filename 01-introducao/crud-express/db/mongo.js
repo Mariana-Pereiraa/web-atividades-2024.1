@@ -1,5 +1,5 @@
 var mongoose = require("mongoose")
-var mongoDB_URI = "mongodb://127.0.0.1:27017/webt04"
+var mongoDB_URI = "mongodb://127.0.0.1:27017/prova"
 
 
 

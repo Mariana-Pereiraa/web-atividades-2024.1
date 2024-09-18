@@ -2,9 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./components/Home";
 
-import { Criar } from "./components/professor/Criar"; 
-import Listar from "./components/professor/Listar";
-import Editar from "./components/professor/Editar"
+import { Criar } from "./components/aluno/Criar"; 
+import Listar from "./components/aluno/Listar";
+import Editar from "./components/aluno/Editar"
 
 
 const router = createBrowserRouter(
@@ -14,15 +14,15 @@ const router = createBrowserRouter(
             element: <Home />,
             children: [
                 {
-                    path:"professor/listar",
+                    path:"aluno/listar",
                     element:<Listar />
                 },
                 {
-                    path:"professor/criar",
+                    path:"aluno/criar",
                     element:<Criar />
                 },
                 {
-                    path:"professor/editar/:id",
+                    path:"aluno/editar/:id",
                     element:<Editar />
                 }
             ]

@@ -30,17 +30,17 @@ const Home = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Professor
+                  Aluno
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="professor/listar">
-                        Listar Professor
+                    <Link className="dropdown-item" to="aluno/listar">
+                        Listar Aluno
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="professor/criar">
-                        Criar Professor
+                    <Link className="dropdown-item" to="aluno/criar">
+                        Criar Aluno
                     </Link>
                   </li>
                 </ul>
