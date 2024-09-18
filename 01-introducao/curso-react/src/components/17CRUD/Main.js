@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import { Criar } from "./components/aluno/Criar"; 
 import Listar from "./components/aluno/Listar";
 import Editar from "./components/aluno/Editar"
+import ListarCurso from "./components/aluno/ListarCurso";
 
 
 const router = createBrowserRouter(
@@ -24,6 +25,10 @@ const router = createBrowserRouter(
                 {
                     path:"aluno/editar/:id",
                     element:<Editar />
+                },
+                {
+                    path: "aluno/listaPorCurso",
+                    element: <ListarCurso />
                 }
             ]
         }

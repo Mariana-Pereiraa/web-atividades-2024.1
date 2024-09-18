@@ -54,6 +54,24 @@ class AlunoServiceMongo {
         )
         .catch(error => console.log(error))
     }
+
+    static media(request, response) {
+        AlunoModelMongo.find()
+            .then(alunos => {
+                if (alunos.length === 0) {
+                    response.json({ media: 0 });
+                    return;
+                }
+    
+                const media = alunos.reduce((sum, aluno) => sum + aluno.ira, 0) / alunos.length;
+                response.json({ media: media.toFixed(2) });
+            })
+            .catch(error => {
+                console.log(error);
+                response.status(500).json({ error: 'Erro ao calcular a média' });
+            });
+    }
+
 }
 
 module.exports = AlunoServiceMongo

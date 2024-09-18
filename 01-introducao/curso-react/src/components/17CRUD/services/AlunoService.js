@@ -91,6 +91,15 @@ class AlunoService {
       })
       .catch( error => console.log(error))
   }
+
+    static media = async callback => {
+        try {
+            const response = await axios.get(url + "media");
+            callback(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 export default AlunoService;

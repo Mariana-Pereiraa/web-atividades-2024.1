@@ -4,16 +4,17 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import { Link, Outlet } from "react-router-dom";
 
 const Home = () => {
+
   return (
     <div>
       {/*INÍCIO DA BARRA DE NAVEGAÇÃO*/}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          
+
           <a className="navbar-brand" href="www.bootstrap.com">
             Navbar
           </a>
-          
+
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -35,12 +36,18 @@ const Home = () => {
                 <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to="aluno/listar">
-                        Listar Aluno
+                      Listar Aluno
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="aluno/criar">
-                        Criar Aluno
+                      Criar Aluno
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link className="dropdown-item" to="aluno/listaPorCurso">
+                      Listar Alunos Por Curso
                     </Link>
                   </li>
                 </ul>
@@ -51,11 +58,11 @@ const Home = () => {
         </div>
       </nav>
       {/*FIM DA BARRA DE NAVEGAÇÃO*/}
-      
+
       {/*INÍCIO DO CONTEÚDO DO SITE*/}
       <Outlet />
       {/*FIM DO CONTEÚDO DO SITE*/}
-   
+
     </div>
   );
 };

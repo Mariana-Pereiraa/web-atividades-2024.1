@@ -49,4 +49,13 @@ router.delete(
     }
 )
 
+router.get(
+    "/media",
+    (request, response) => {
+       AlunoServiceMongo.media(request,response)
+    }
+)
+
+
+
 module.exports = router;
